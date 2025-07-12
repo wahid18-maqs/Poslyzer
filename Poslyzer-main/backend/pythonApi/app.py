@@ -421,7 +421,7 @@ class PostureAPI:
             ]
         })
     
-    def run(self, host='0.0.0.0', port=5001, debug=True):
+    def run(self, host='0.0.0.0', port=5001, debug=False):
         """Run the Flask application"""
         self.app.run(host=host, port=port, debug=debug)
 
