@@ -44,7 +44,7 @@ const RecordPage = () => {
             formData.append("frame", blob);
             formData.append("mode", recordingMode);
 
-            const backendURL= import.meta.env.VITE_BACKEND_URL
+            const backendURL= import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
             try {
               const res = await axios.post(backendURL+"/api/video/frame", formData);

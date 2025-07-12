@@ -11,12 +11,12 @@ const analyzeUploadedVideo = async (req, res) => {
     const filePath = req.file.path;
     const form = new FormData();
 
-    const pythonURL=process.env.PYTHON_URL;
-
     form.append('video', fs.createReadStream(filePath));
     form.append('mode', req.body.mode || 'squat');
 
-    const response = await axios.post(pythonURL+'/analyze', form, {
+    const pythonurl= process.env.PYTHON_URL || 'http://127.0.0.1:5001/';
+
+    const response = await axios.post(pythonurl+'/analyze', form, {
       headers: form.getHeaders(),
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
